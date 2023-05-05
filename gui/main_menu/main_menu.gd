@@ -3,6 +3,7 @@ extends Control
 
 signal start_requested
 signal settings_requested
+signal credits_requested
 signal exit_requested
 
 
@@ -12,6 +13,10 @@ func _on_Start_pressed():
 
 func _on_Settings_pressed():
 	settings_requested.emit()
+
+
+func _on_Credits_pressed():
+	credits_requested.emit()
 
 
 func _on_Exit_pressed():
