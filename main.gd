@@ -4,6 +4,7 @@ const Settings = preload("res://settings.gd")
 
 @onready var _main_menu = $MainMenu
 @onready var _settings_ui = $SettingsUI
+@onready var _credits_ui = $CreditsUI
 
 var _settings = Settings.new()
 var _game
@@ -26,6 +27,10 @@ func _on_MainMenu_start_requested():
 
 func _on_MainMenu_settings_requested():
 	_settings_ui.show()
+
+
+func _on_MainMenu_credits_requested():
+	_credits_ui.show()
 
 
 func _on_MainMenu_exit_requested():
@@ -57,5 +62,8 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and not event.is_echo():
 			if event.keycode == KEY_ESCAPE:
-				_settings_ui.hide()
+				if _settings_ui.visible:
+					_settings_ui.hide()
+				if _credits_ui.visible:
+					_credits_ui.hide()
 

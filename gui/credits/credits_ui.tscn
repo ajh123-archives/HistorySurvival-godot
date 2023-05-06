@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjjvomeph3ifv"]
+
+[ext_resource type="Script" path="res://gui/credits/credits_ui.gd" id="1_01ntn"]
+[ext_resource type="Shader" path="res://gui/background_blur.gdshader" id="2_355uw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxpjy"]
+shader = ExtResource("2_355uw")
+
+[node name="CreditsUI" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_01ntn")
+
+[node name="PC" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_mxpjy")
+custom_minimum_size = Vector2(600, 350)
+layout_mode = 2
+
+[node name="MC" type="MarginContainer" parent="PC"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VB" type="VBoxContainer" parent="PC/MC"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PC/MC/VB"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="PC/MC/VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Main" type="MarginContainer" parent="PC/MC/VB/TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="RichTextLabel" parent="PC/MC/VB/TabContainer/Main"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Developers
+
+[ul]
+[b]Lead Programmer:[/b] [url=https://github.com/ajh123/]ajh123[/url]
+[/ul]
+
+Special Thanks
+
+[ul]
+[i]Special Thanks to all our playtesters and community members who provided valuable feedback and support.[/i]
+[/ul]
+
+[center][i]© [b]2023[/b] [i][url=https://minersonline.tk]Miners Online[/url][/i]. All rights reserved.[/i][/center]
+"
+fit_content = true
+
+[node name="Libaries" type="MarginContainer" parent="PC/MC/VB/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="RichTextLabel" parent="PC/MC/VB/TabContainer/Libaries"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Libaries / projects included
+[ul]
+[url=https://godotengine.org/]Godot Engine[/url]
+[url=https://github.com/Zylann/solar_system_demo/]Zylann's Solar System Demo[/url]
+[url=https://github.com/Zylann/godot_voxel/]Zylann's Voxel Tools for Godot[/url]
+[/ul]"
+
+[node name="HB" type="HBoxContainer" parent="PC/MC/VB"]
+layout_mode = 2
+alignment = 1
+
+[node name="Close" type="Button" parent="PC/MC/VB/HB"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="PC/MC/VB/HB/Close" to="." method="_on_Close_pressed"]

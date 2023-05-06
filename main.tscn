@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://q76geh8jqrei"]
+[gd_scene load_steps=5 format=3 uid="uid://q76geh8jqrei"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_on8gp"]
 [ext_resource type="PackedScene" uid="uid://cpghq3ve70sg0" path="res://gui/main_menu/main_menu.tscn" id="1_rauo3"]
 [ext_resource type="PackedScene" uid="uid://2n0u3k5i6lwq" path="res://gui/settings/settings_ui.tscn" id="2_6wrng"]
+[ext_resource type="PackedScene" uid="uid://bjjvomeph3ifv" path="res://gui/credits/credits_ui.tscn" id="4_i3lqs"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_on8gp")
@@ -12,6 +13,10 @@ script = ExtResource("1_on8gp")
 [node name="SettingsUI" parent="." instance=ExtResource("2_6wrng")]
 visible = false
 
+[node name="CreditsUI" parent="." instance=ExtResource("4_i3lqs")]
+visible = false
+
+[connection signal="credits_requested" from="MainMenu" to="." method="_on_MainMenu_credits_requested"]
 [connection signal="exit_requested" from="MainMenu" to="." method="_on_MainMenu_exit_requested"]
 [connection signal="settings_requested" from="MainMenu" to="." method="_on_MainMenu_settings_requested"]
 [connection signal="start_requested" from="MainMenu" to="." method="_on_MainMenu_start_requested"]
