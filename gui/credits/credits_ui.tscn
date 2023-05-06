@@ -40,6 +40,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Main" type="MarginContainer" parent="PC/MC/VB/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
@@ -66,22 +67,34 @@ Special Thanks
 "
 fit_content = true
 
-[node name="Libaries" type="MarginContainer" parent="PC/MC/VB/TabContainer"]
-visible = false
+[node name="External Resources" type="MarginContainer" parent="PC/MC/VB/TabContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="RichTextLabel" parent="PC/MC/VB/TabContainer/Libaries"]
+[node name="Label" type="RichTextLabel" parent="PC/MC/VB/TabContainer/External Resources"]
 layout_mode = 2
 bbcode_enabled = true
-text = "Libaries / projects included
+text = "[b]Tools used[/b]
 [ul]
 [url=https://godotengine.org/]Godot Engine[/url]
 [url=https://github.com/Zylann/solar_system_demo/]Zylann's Solar System Demo[/url]
 [url=https://github.com/Zylann/godot_voxel/]Zylann's Voxel Tools for Godot[/url]
+[url=https://github.com/SIsilicon/Godot-Lens-Flare-Plugin/]SIsilicon's Godot-Lens-Flare-Plugin[/url]
+[/ul]
+
+[b]Art[/b]
+
+[ul]
+[url=https://ambientcg.com/]ambientCG[/url]
+[/ul]
+
+[b]Music[/b]
+
+[ul]
+[url=https://sonniss.com/gameaudiogdc/]Sonniss's GameAudioGDC[/url]
 [/ul]"
 
 [node name="HB" type="HBoxContainer" parent="PC/MC/VB"]
@@ -93,4 +106,6 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Close"
 
+[connection signal="meta_clicked" from="PC/MC/VB/TabContainer/Main/Label" to="." method="_on_label_meta_clicked"]
+[connection signal="meta_clicked" from="PC/MC/VB/TabContainer/External Resources/Label" to="." method="_on_label_meta_clicked"]
 [connection signal="pressed" from="PC/MC/VB/HB/Close" to="." method="_on_Close_pressed"]
