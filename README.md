@@ -1,12 +1,6 @@
-Solar System Game Demo
-=======================
+# History Survival
 
-This is a 3D space game demo, with procedurally-generated planets. It is a technical demo for one use of the [Voxel Tools module](https://github.com/Zylann/godot_voxel) and Godot 4.
-
-[![Video](https://img.youtube.com/vi/8OrZX347MoE/0.jpg)](https://www.youtube.com/watch?v=8OrZX347MoE)
-
-Features
------------
+## Features
 
 - Procedurally-generated planets and moon (1 to 2 Km in radius, or 10 to 20 Km in large scale mode)
 - Deterministic, non-realistic celestial motion at all times
@@ -24,24 +18,23 @@ Features
 - Basic waypoint system to pin locations
 - Main menu and in-game menu with settings
 - Option to increase the scale of planets x10 (physics is buggy on planets, maybe unless you use a double-precision Godot build)
-- Lens flares from [SIsilicon](https://github.com/SIsilicon/Godot-Lens-Flare-Plugin), ported to Godot 4 for the demo
+- Lens flares from [SIsilicon](https://github.com/SIsilicon/Godot-Lens-Flare-Plugin), ported to Godot 4 for [Zylann's Solar System Demo](https://github.com/Zylann/solar_system_demo/)
+- Solar System from [Zylann](https://github.com/Zylann/solar_system_demo/)
 
-Note:
-This is a demo project, so any lack of gameplay, placeholders or absence of roadmap is intentional. It is meant to showcase an example of how to start making a game like this. There is no plan to make it a fully-fledged space game, but bug-fixes or small improvements may be welcome.
+### Note:
+This project is in very early alpha, so any lack of gameplay, placeholders or absence of roadmap is intentional. It is meant to be fully-fledged game like eventually. Suggestions bug-fixes or small improvements may be welcome.
 
 Textures are from https://ambientcg.com/  
 Sound effects are partly from https://sonniss.com/gameaudiogdc
 
 
-Performance
--------------
+## Performance
 
 You need a computer with a powerful CPU to run this. By default, Vulkan is required, but it might work in GLES3 if you turn off Vulkan-only features like GPU detail rendering.
 For reference, with an AMD Ryzen 5 2600 6-core CPU, an nVidia GeForce GTX 1060 6Gb graphics card and an optimized Godot build, this demo starts up in 5 seconds, uses about 1 Gb of RAM and should mostly sustain 60 FPS.
 
 
-Controls
-----------
+# Controls
 
 In spaceship mode:
 - The mouse orientates the ship
@@ -61,8 +54,7 @@ In character mode:
 - T to place a waypoint
 
 
-Dependencies
---------------
+# Dependencies
 
 You need to use a custom version of [Godot Engine](https://godotengine.org/) including the [Voxel Tools](https://github.com/Zylann/godot_voxel) module. See how to get one here: https://voxel-tools.readthedocs.io/en/latest/getting_the_module/
 
