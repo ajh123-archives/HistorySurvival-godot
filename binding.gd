@@ -6,6 +6,8 @@ static func create(obj, var_name: String, control: Control) -> BindingBase:
 		return RangeBinding.new(obj, var_name, control as Range)
 	if control is OptionButton:
 		return OptionBinding.new(obj, var_name, control as OptionButton)
+	if control is LineEdit:
+		return LineEditBinding.new(obj, var_name, control as LineEdit)
 	push_error("Cannot find binding type")
 	return null
 
@@ -82,3 +84,23 @@ class OptionBinding extends BindingBase:
 		_control.select(i)
 		_updating_ui = false
 
+
+class LineEditBinding extends BindingBase:
+	var _control : LineEdit
+	
+	func _init(obj, var_name: String, r: LineEdit):
+		_var_name = var_name
+		_obj = obj
+		_control = r
+		_control.text_changed.connect(_on_text_changed)
+	
+	func _on_text_changed(new_value: String):
+		if _updating_ui:
+			return
+		_obj.set(_var_name, new_value)
+
+	func update_ui():
+		var v = _obj.get(_var_name)
+		_updating_ui = true
+		_control.text = v
+		_updating_ui = false

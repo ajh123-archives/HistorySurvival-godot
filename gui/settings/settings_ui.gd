@@ -4,6 +4,9 @@ const Settings = preload("res://settings.gd")
 const Binding = preload("res://binding.gd")
 
 @onready var _world_scale_x10_checkbox = $PC/MC/VB/TabContainer/Game/GC/VBoxContainer/WorldScaleX10
+@onready var _world_save_folder_browse = $PC/MC/VB/TabContainer/Game/GC/HBoxContainer/WorldSaveBrowse
+@onready var _world_save_folder_reset = $PC/MC/VB/TabContainer/Game/GC/HBoxContainer/WorldSaveReset
+@onready var _world_default_name_text = $PC/MC/VB/TabContainer/Game/GC/WorldDefaultName
 
 @onready var _lens_flares_checkbox = $PC/MC/VB/TabContainer/Graphics/GC/LensFlares
 @onready var _glow_checkbox = $PC/MC/VB/TabContainer/Graphics/GC/Glow
@@ -39,6 +42,7 @@ func set_settings(s: Settings):
 	_settings = s
 	
 	_bindings.append(Binding.create(_settings, "world_scale_x10", _world_scale_x10_checkbox))
+	_bindings.append(Binding.create(_settings, "world_default_name", _world_default_name_text))
 	_bindings.append(Binding.create(_settings, "shadows_enabled", _shadows_checkbox))
 	_bindings.append(Binding.create(_settings, "lens_flares_enabled", _lens_flares_checkbox))
 	_bindings.append(Binding.create(_settings, "glow_enabled", _glow_checkbox))

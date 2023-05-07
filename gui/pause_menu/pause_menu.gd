@@ -5,6 +5,7 @@ signal resume_requested
 signal settings_requested
 signal exit_to_menu_requested
 signal exit_to_os_requested
+signal save_requested
 
 
 func _on_Resume_pressed():
@@ -22,3 +23,6 @@ func _on_ExitToMenu_pressed():
 func _on_ExitToOs_pressed():
 	exit_to_os_requested.emit()
 
+
+func _on_Save_pressed():
+	save_requested.emit()

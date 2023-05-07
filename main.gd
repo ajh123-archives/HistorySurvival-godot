@@ -12,6 +12,10 @@ var _game
 
 func _ready():
 	_settings_ui.set_settings(_settings)
+	if Engine.is_editor_hint():
+		_settings.world_save_folder = "res://debug_data/"
+	else:
+		_settings.world_save_folder = "user://"
 
 
 func _on_MainMenu_start_requested():

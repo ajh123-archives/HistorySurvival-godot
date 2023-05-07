@@ -23,7 +23,7 @@ const EarthDaySound = preload("res://sounds/earth_surface_day.ogg")
 const EarthNightSound = preload("res://sounds/earth_surface_night.ogg")
 const WindSound = preload("res://sounds/wind.ogg")
 
-const SAVE_FOLDER_PATH = "debug_data"
+const SAVE_FOLDER_PATH = "saves"
 const LARGE_SCALE = 10.0
 
 
@@ -239,7 +239,9 @@ static func _setup_rocky_planet(body: StellarBody, root: Node3D, settings: Setti
 	#mat.set_shader_parameter("u_global_normalmap", sphere_normalmap_tex)
 
 	var stream = VoxelStreamSQLite.new()
-	stream.database_path = str(SAVE_FOLDER_PATH, "/", body.name, ".sqlite")
+	var WORLD_PATH = str(settings.world_save_folder, "/", SAVE_FOLDER_PATH, "/", settings.world_default_name)
+	stream.database_path = str(WORLD_PATH, "/", body.name, "/terrain.sqlite")
+	DirAccess.make_dir_recursive_absolute(WORLD_PATH)
 
 	var extra_lods = 0
 	if settings.world_scale_x10:

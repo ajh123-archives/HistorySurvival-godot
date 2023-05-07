@@ -4,6 +4,8 @@ const DETAIL_RENDERING_CPU = 1
 const DETAIL_RENDERING_GPU = 2
 
 var world_scale_x10 = false
+var world_save_folder = ""
+var world_default_name = "testing"
 var shadows_enabled = true
 var lens_flares_enabled = true
 var glow_enabled = true

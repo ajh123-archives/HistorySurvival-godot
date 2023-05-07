@@ -67,6 +67,28 @@ theme_override_constants/separation = 0
 layout_mode = 2
 text = "Enabled"
 
+[node name="Label2" type="Label" parent="PC/MC/VB/TabContainer/Game/GC"]
+layout_mode = 2
+text = "World Save Folder"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PC/MC/VB/TabContainer/Game/GC"]
+layout_mode = 2
+
+[node name="WorldSaveBrowse" type="Button" parent="PC/MC/VB/TabContainer/Game/GC/HBoxContainer"]
+layout_mode = 2
+text = "Browse"
+
+[node name="WorldSaveReset" type="Button" parent="PC/MC/VB/TabContainer/Game/GC/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="Label3" type="Label" parent="PC/MC/VB/TabContainer/Game/GC"]
+layout_mode = 2
+text = "World Name"
+
+[node name="WorldDefaultName" type="LineEdit" parent="PC/MC/VB/TabContainer/Game/GC"]
+layout_mode = 2
+
 [node name="Graphics" type="MarginContainer" parent="PC/MC/VB/TabContainer"]
 visible = false
 layout_mode = 2

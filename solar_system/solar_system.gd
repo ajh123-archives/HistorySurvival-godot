@@ -396,3 +396,6 @@ func _on_PauseMenu_settings_requested():
 	# This makes sure it shows in front.
 	_settings_ui.move_to_front()
 
+
+func _on_PauseMenu_save_requested():
+	_save_world()
