@@ -5,7 +5,8 @@ const SolarSystemSetup = preload("./solar_system_setup.gd")
 const Settings = preload("res://settings.gd")
 
 const CameraScene = preload("../camera/camera.tscn")
-const ShipScene = preload("../ship/ship.tscn")
+# const ShipScene = preload("../ship/ship.tscn")
+const CharacterScene = preload("../character/character.tscn")
 
 const BODY_REFERENCE_ENTRY_RADIUS_FACTOR = 3.0
 const BODY_REFERENCE_EXIT_RADIUS_FACTOR = 3.1 # Must be higher for hysteresis
@@ -31,7 +32,7 @@ signal exit_to_menu_requested
 @onready var _pause_menu = $PauseMenu
 @onready var _lens_flare = $LensFlare
 
-var _ship = null
+var _player = null
 
 var _bodies := []
 var _reference_body_id := 0
@@ -72,17 +73,32 @@ func _ready():
 	if _settings.world_scale_x10:
 		camera.far *= SolarSystemSetup.LARGE_SCALE
 	add_child(camera)
-	_ship = ShipScene.instantiate()
-	_ship.global_transform = _spawn_point.global_transform
-	_ship.apply_game_settings(_settings)
-	add_child(_ship)
-	camera.set_target(_ship)
+	_player = CharacterScene.instantiate()
+	add_child(_player)
+	camera.set_target(_player)
 	_hud.show()
 	
 	set_physics_process(true)
 
 	progress_info.finished = true
 	loading_progressed.emit(progress_info)
+
+	# Telport player to planet 2's (Normaly earth) surface
+	set_reference_body(2)
+	var earth = get_reference_stellar_body()
+	var surface = Vector3(earth.volume.global_position.x,
+						earth.volume.global_position.y + earth.radius + 100,
+						earth.volume.global_position.z)
+	_player.global_position = surface
+	# var space_state = earth.volume.get_world_3d().direct_space_state
+	# var ray_query := PhysicsRayQueryParameters3D.new()
+	# ray_query.from = surface
+	# ray_query.to = earth.volume.global_position
+	# ray_query.exclude = [_player]
+	# var result = space_state.intersect_ray(ray_query)
+	# print(surface, earth.volume.global_position, result)
+	
+	_player.global_position = surface
 
 
 func set_settings(s: Settings):
@@ -118,7 +134,7 @@ func _physics_process(delta: float):
 					# Ignore sun, no point landing there
 					continue
 				var body_pos = body.node.global_transform.origin
-				var d = body_pos.distance_to(_ship.global_transform.origin)
+				var d = body_pos.distance_to(_player.global_transform.origin)
 				if d < BODY_REFERENCE_ENTRY_RADIUS_FACTOR * body.radius:
 					print("Close to ", body.name, " which is at ", body_pos)
 					set_reference_body(i)
@@ -126,7 +142,7 @@ func _physics_process(delta: float):
 		else:
 			var ref_body = _bodies[_reference_body_id]
 			var body_pos = ref_body.node.global_transform.origin
-			var d = body_pos.distance_to(_ship.global_transform.origin)
+			var d = body_pos.distance_to(_player.global_transform.origin)
 			if d > BODY_REFERENCE_EXIT_RADIUS_FACTOR * ref_body.radius:
 				set_reference_body(0)
 	
