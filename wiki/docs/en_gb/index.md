@@ -4,7 +4,7 @@ description: "Introduction to History Survival"
 tags: ["miners online", "history survival"]
 ---
 
-You may view the [blog articles](/blog) for History Survival.
+You may view the [blog articles](https://minersonline.tk/blog/) for History Survival.
 
 The source can be found on [GitHub](https://github.com/ajh123-development/HistorySurvival).
 
@@ -16,7 +16,7 @@ Older versions are found in the [archives](https://github.com/ajh123-archives/Hi
 # The folowing pages are outdated!
 
 ## Topics
-* [Multiplayer](/docs/en/history-survival/multiplayer/)
+* [Multiplayer](/docs/history_survival/en_gb/multiplayer/)
 * Text
-    * [Formatting](/docs/en/history-survival/formatting-text)
-    * [JSON](/docs/en/history-survival/json-text)
+    * [Formatting](/docs/history_survival/en_gb/formatting-text)
+    * [JSON](/docs/ehistory_survival/en_gb/json-text)
