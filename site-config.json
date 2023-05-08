@@ -11,19 +11,19 @@
 				"sidebar": [
 					{
 						"text": "Introduction", 
-						"link": "/docs/history_survival/en_gb"
+						"link": "https://minersonline.tk/docs/history_survival/en_gb"
 					},
 					{
 						"text": "Multiplayer",
-						"link": "/docs/history_survival/en_gb/multiplayer"
+						"link": "https://minersonline.tk/docs/history_survival/en_gb/multiplayer"
 					},
 					{
 						"text": "Text Formaatting",
-						"link": "/docs/history_survival/en_gb/formatting-text"
+						"link": "https://minersonline.tk/docs/history_survival/en_gb/formatting-text"
 					},
 					{
 						"text": "JSON text",
-						"link": "/docs/history_survival/en_gb/json-text"
+						"link": "https://minersonline.tk/docs/history_survival/en_gb/json-text"
 					}
 				]
 			}
