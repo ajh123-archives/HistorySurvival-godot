@@ -2,7 +2,7 @@
 title: 'History Survival 0.0.1'
 pubDate: '2022-05-10'
 description: 'The very first version is now out!'
-author: 'Staff'
+authors: ['ajh123']
 tags: ["miners online", "release", "history survival"]
 ---
 

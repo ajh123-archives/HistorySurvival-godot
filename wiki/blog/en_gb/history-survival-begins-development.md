@@ -2,7 +2,7 @@
 title: 'History Survival begins development!'
 pubDate: '2022-03-23'
 description: 'A great new game has begun development!'
-author: 'Staff'
+authors: ['ajh123']
 tags: ["miners online", "information", "history survival"]
 ---
 

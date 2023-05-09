@@ -2,7 +2,7 @@
 title: 'History Survival 0.0.4'
 pubDate: '2023-02-02'
 description: 'The fourth version!'
-author: 'Staff'
+authors: ['ajh123']
 tags: ["miners online", "release", "history survival"]
 ---
 
